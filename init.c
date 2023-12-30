@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:30:04 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 05:44:58 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:51:26 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	init_philos(t_philo *philos, t_data *data)
 		philos[i].id = i + 1;
 		philos[i].meals = 0;
 		philos[i].last_meal = 0;
+		philos[i].eating = 0;
 		id_str = ft_itoa(philos[i].id);
 		sem_name = ft_strjoin("/meal_s", id_str);
 		if (!id_str || !sem_name)

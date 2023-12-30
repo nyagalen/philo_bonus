@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 01:38:29 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 11:27:41 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:55:24 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_philo
 {
 	int		id;
 	int		meals;
+	int		eating;
 	long		last_meal;
 	sem_t		*meal_s;
 	struct s_data	*data;
