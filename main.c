@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:01:54 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/28 18:04:24 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 04:11:09 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,4 @@ int	main(int argc, char **argv)
 		printf("Invalid arguments\n");
 		return (1);
 	}
+	if (!init_philos(philos))

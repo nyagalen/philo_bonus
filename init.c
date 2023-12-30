@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:30:04 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/28 17:45:16 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 04:11:19 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ int	init_data(t_data *data, int argc, char **argv)
 	init_sem(data);
 	return (1);
 }
-
