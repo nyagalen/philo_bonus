@@ -6,7 +6,7 @@
 #    By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 05:46:49 by svydrina          #+#    #+#              #
-#    Updated: 2023/12/30 05:52:31 by svydrina         ###   ########.fr        #
+#    Updated: 2023/12/30 07:30:49 by svydrina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,5 +18,20 @@ SRCS = main.c init.c utils.c utils2.c
 
 OBJS = $(SRCS:.c=.o)
 
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	cc -o $@ $^
+
 .c.o:
 	$(CC) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

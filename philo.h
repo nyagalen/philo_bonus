@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 01:38:29 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 05:46:33 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 07:33:10 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 # include <pthread.h>
 # include <time.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
 # include <sys/wait.h>
+# include <fcntl.h>
 
 typedef struct s_philo
 {
@@ -47,7 +50,7 @@ int		init_data(t_data *data, int argc, char **argv);
 void	init_sem(t_data *data);
 char	*ft_itoa(int num);
 int		ft_atoi(char *num);
-int		check_args(int argc, char *argv);
+int		check_args(int argc, char **argv);
 long	get_time(void);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);

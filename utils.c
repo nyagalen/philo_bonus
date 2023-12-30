@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:32:33 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 02:58:24 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 07:37:00 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ int	ft_atoi(char *num)
 	return (res);
 }
 
-int	check_args(int argc, char *argv)
+int	check_args(int argc, char **argv)
 {
 	int	i;
 	int	j;
 
-	i = -1;
+	i = 0;
 	while (++i < argc)
 	{
 		j = -1;
