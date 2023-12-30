@@ -6,7 +6,7 @@
 #    By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 05:46:49 by svydrina          #+#    #+#              #
-#    Updated: 2023/12/30 07:30:49 by svydrina         ###   ########.fr        #
+#    Updated: 2023/12/30 11:30:34 by svydrina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo_bonus
 
 CC = cc -Wall -Werror -Wextra
 
-SRCS = main.c init.c utils.c utils2.c
+SRCS = main.c init.c utils.c utils2.c process.c monitor.c
 
 OBJS = $(SRCS:.c=.o)
 
