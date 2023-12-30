@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:30:04 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 04:43:00 by svydrina         ###   ########.fr       */
+/*   Updated: 2023/12/30 05:44:58 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,20 @@ int	init_philos(t_philo *philos, t_data *data)
 		philos[i].meal_s = sem_open(sem_name, O_CREAT, 0644, 1);
 		free(id_str);
 		free(sem_name);
+		philos[i].data = data;
 	}
 	return (1);
+}
+
+void	init_sem(t_data *data)
+{
+	sem_unlink("/forks");
+	sem_unlink("/death_s");
+	sem_unlink("/print_s");
+	data->forks = sem_open("/forks", O_CREAT, 0644, data->nb_ph);
+	data->death_s = sem_open("/death_s", O_CREAT, 0644, 1);
+	data->print_s = sem_open("/print_s", O_CREAT, 0644, 1);
+	sem_wait(data->death_s);
 }
 
 int	init_data(t_data *data, int argc, char **argv)
