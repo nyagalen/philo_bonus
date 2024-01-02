@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 11:29:02 by svydrina          #+#    #+#             */
-/*   Updated: 2024/01/02 04:10:16 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/02 05:11:56 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	*rip(void *pointer)
 			sem_wait(philo->data->print_s);
 			printf("%ld %d died\n",
 				cur - philo->data->start_time, philo->id);
+			sem_post(philo->data->print_s);
 			sem_post(philo->data->death_s);
 		}
 		ft_usleep(1);

@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:30:04 by svydrina          #+#    #+#             */
-/*   Updated: 2024/01/02 04:19:35 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/02 05:10:26 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	init_philos(t_philo *philos, t_data *data)
 			return (0);
 		sem_unlink(sem_name);
 		philos[i].meal_s = sem_open(sem_name, O_CREAT, 0644, 1);
+		sem_unlink(sem_name);
 		free(id_str);
 		free(sem_name);
 		philos[i].data = data;
