@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:01:54 by svydrina          #+#    #+#             */
-/*   Updated: 2024/01/01 22:34:23 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/02 03:51:20 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 		printf("Invalid arguments\n");
 		return (1);
 	}
-	printf("did we get past arg check?\n");
 	if (!init_philos(philos, &data))
 	{
 		printf("Malloc error\n");

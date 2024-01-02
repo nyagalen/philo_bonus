@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 03:38:10 by svydrina          #+#    #+#             */
-/*   Updated: 2024/01/01 23:20:44 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/02 04:14:16 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ void	print(t_philo *philo, char *str)
 
 	sem_wait(philo->data->print_s);
 	timestamp = get_time() - philo->data->start_time;
-	//printf("Did no one die? %d\n", one_died(philo->data));
-	//if (!one_died(philo->data))
-		printf("%ld %d %s\n", timestamp, philo->id, str);
+	printf("%ld %d %s\n", timestamp, philo->id, str);
 	sem_post(philo->data->print_s);
 }
 
