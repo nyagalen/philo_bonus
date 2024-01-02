@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:30:04 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 15:51:26 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:06:40 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	init_philos(t_philo *philos, t_data *data)
 	{
 		philos[i].id = i + 1;
 		philos[i].meals = 0;
-		philos[i].last_meal = 0;
+		philos[i].last_meal = get_time();
 		philos[i].eating = 0;
 		id_str = ft_itoa(philos[i].id);
 		sem_name = ft_strjoin("/meal_s", id_str);
@@ -31,6 +31,7 @@ int	init_philos(t_philo *philos, t_data *data)
 			return (0);
 		sem_unlink(sem_name);
 		philos[i].meal_s = sem_open(sem_name, O_CREAT, 0644, 1);
+		//sem_unlink(sem_name);
 		free(id_str);
 		free(sem_name);
 		philos[i].data = data;
@@ -46,12 +47,16 @@ void	init_sem(t_data *data)
 	data->forks = sem_open("/forks", O_CREAT, 0644, data->nb_ph);
 	data->death_s = sem_open("/death_s", O_CREAT, 0644, 1);
 	data->print_s = sem_open("/print_s", O_CREAT, 0644, 1);
+	sem_unlink("/print_s");
+	sem_unlink("/forks");
+	sem_unlink("/death_s");
 	sem_wait(data->death_s);
 }
 
 int	init_data(t_data *data, int argc, char **argv)
 {
 	data->nb_ph = ft_atoi(argv[1]);
+	data->died = 0;
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);
 	data->time_to_sleep = ft_atoi(argv[4]);
@@ -66,6 +71,7 @@ int	init_data(t_data *data, int argc, char **argv)
 	if (data->max_meals == 0)
 		exit(0);
 	data->start_time = get_time();
+	printf("Is start_time correct? %ld\n", data->start_time);
 	init_sem(data);
 	return (1);
 }

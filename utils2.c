@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 03:38:10 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 03:49:24 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:20:44 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,25 @@ char	*ft_strjoin(char *s1, char *s2)
 		joined[i + j] = s2[j];
 	joined[i + j] = '\0';
 	return (joined);
+}
+
+void	print(t_philo *philo, char *str)
+{
+	long	timestamp;
+
+	sem_wait(philo->data->print_s);
+	timestamp = get_time() - philo->data->start_time;
+	//printf("Did no one die? %d\n", one_died(philo->data));
+	//if (!one_died(philo->data))
+		printf("%ld %d %s\n", timestamp, philo->id, str);
+	sem_post(philo->data->print_s);
+}
+
+void	ft_usleep(long ms)
+{
+	long	start;
+
+	start = get_time();
+	while (get_time() - start < ms)
+		usleep(500);
 }

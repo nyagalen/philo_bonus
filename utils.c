@@ -6,7 +6,7 @@
 /*   By: svydrina <svydrina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:32:33 by svydrina          #+#    #+#             */
-/*   Updated: 2023/12/30 07:37:00 by svydrina         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:04:22 by svydrina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_itoa(int num)
 	toa[len--] = '\0';
 	while (num > 0)
 	{
-		toa[len--] = num % 10;
+		toa[len--] = num % 10 + 48;
 		num /= 10;
 	}
 	return (toa);
@@ -69,7 +69,6 @@ long	get_time(void)
 {
 	struct timeval	tv;
 
-	if (gettimeofday(&tv, NULL))
-		return (0);
-	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
